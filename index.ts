@@ -3,11 +3,11 @@ import sharp from "sharp";
 
 const bskyUser = process.env.X_BSKY_USERNAME;
 const bskyPass = process.env.X_BSKY_PASSWORD;
-const githubUser = process.env.X_GITHUB_USER;
+const githubUser = process.env.X_GITHUB_USERNAME;
 
 if (!bskyUser || !bskyPass || !githubUser) {
     throw new Error(
-        "Missing required environment variables: X_BSKY_USERNAME, X_BSKY_PASSWORD, X_GITHUB_USER",
+        "Missing required environment variables: X_BSKY_USERNAME, X_BSKY_PASSWORD, X_GITHUB_USERNAME",
     );
 }
 

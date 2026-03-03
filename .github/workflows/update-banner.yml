@@ -21,4 +21,4 @@ jobs:
               env:
                   X_BSKY_USERNAME: ${{ secrets.X_BSKY_USERNAME }}
                   X_BSKY_PASSWORD: ${{ secrets.X_BSKY_PASSWORD }}
-                  X_GITHUB_USER: ${{ secrets.X_GITHUB_USER }}
+                  X_GITHUB_USER: ${{ secrets.X_GITHUB_USERNAME }}
