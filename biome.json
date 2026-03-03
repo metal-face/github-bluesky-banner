@@ -20,7 +20,15 @@
 	},
 	"javascript": {
 		"formatter": {
-			"quoteStyle": "double"
+			"quoteStyle": "double",
+			"semicolons": "always",
+			"arrowParentheses": "always",
+			"bracketSpacing": true,
+			"enabled": true,
+			"indentStyle": "space",
+			"indentWidth": 4,
+			"trailingCommas": "all",
+			"lineWidth": 110
 		}
 	},
 	"assist": {
