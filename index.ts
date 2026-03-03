@@ -28,9 +28,15 @@ if (!githubCommitGraph.ok) {
     );
 }
 
-const svgBuffer = Buffer.from(await githubCommitGraph.arrayBuffer());
+const svgBuffer = await githubCommitGraph.arrayBuffer();
 
-const pngGraph = await sharp(svgBuffer).resize(1500, 500).png().toBuffer();
+const background = { r: 22, g: 30, b: 41, alpha: 1 };
+
+const pngGraph = await sharp(svgBuffer)
+    .resize({ width: 1500 })
+    .resize(1500, 500, { fit: "contain", background })
+    .png()
+    .toBuffer();
 
 await agent.upsertProfile(async (existingProfile) => {
     if (!existingProfile) {
