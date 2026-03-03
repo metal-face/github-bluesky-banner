@@ -1,0 +1,24 @@
+name: Update BlueSky Banner
+
+on:
+    schedule:
+        - cron: "0 4 * * *" # Runs everyday at 4 AM
+    workflow_dispatch:
+
+jobs:
+    update-banner:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: "pnpm"
+            - run: pnpm install
+            - run: pnpm exec tsx index.ts
+              env:
+                  X_BSKY_USERNAME: ${{ secrets.X_BSKY_USERNAME }}
+                  X_BSKY_PASSWORD: ${{ secrets.X_BSKY_PASSWORD }}
+                  X_GITHUB_USER: ${{ secrets.X_GITHUB_USER }}
